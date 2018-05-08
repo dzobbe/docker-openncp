@@ -1,0 +1,11 @@
+extensions = x509v3
+x509_extensions = x509v3
+
+[ x509v3 ]
+subjectAltName   = email:giovanni.mazzeo@uniparthenope.it
+keyUsage       = critical, digitalSignature
+extendedKeyUsage = clientAuth
+crlDistributionPoints=URI:http://fitnesslab.es/CRL/openncp-crl.pem
+authorityKeyIdentifier = keyid,issuer
+basicConstraints = critical,CA:FALSE
+subjectKeyIdentifier = hash
