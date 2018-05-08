@@ -167,13 +167,14 @@ EXPOSE 8080
 EXPOSE 8010
 
 
-COPY ./tomcat-conf/libs/*.jar /usr/local/tomcat/lib/
-COPY ./tomcat-conf/conf-files/server.xml /usr/local/tomcat/conf/
-COPY ./tomcat-conf/conf-files/context.xml /usr/local/tomcat/conf/
-COPY ../wars/openatna-web.war /usr/local/tomcat/webapps/
-COPY ../wars/TRC-STS.war /usr/local/tomcat/webapps/
-COPY ../wars/openncp-client-connector.war /usr/local/tomcat/webapps/
-COPY ../wars/openncp-ws-server.war /usr/local/tomcat/webapps/
-COPY ../wars/openncp-gateway.war /usr/local/tomcat/webapps/
+COPY ./country-b/tomcat-conf/libs/*.jar /usr/local/tomcat/lib/
+COPY ./country-b/tomcat-conf/conf-files/server.xml /usr/local/tomcat/conf/
+COPY ./country-b/tomcat-conf/conf-files/context.xml /usr/local/tomcat/conf/
+COPY ./wars/openatna-web.war /usr/local/tomcat/webapps/
+COPY ./wars/TRC-STS.war /usr/local/tomcat/webapps/
+COPY ./wars/openncp-client-connector.war /usr/local/tomcat/webapps/
+COPY ./wars/openncp-ws-server.war /usr/local/tomcat/webapps/
+COPY ./wars/openncp-gateway.war /usr/local/tomcat/webapps/
 
 
+ 

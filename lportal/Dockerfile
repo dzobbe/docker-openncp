@@ -16,11 +16,11 @@ RUN set -x \
 			&& chmod +x /usr/local/liferay-portal/tomcat/bin/*.sh
 			
 
-COPY ./tomcat-conf/libs/*.jar /usr/local/liferay-portal/tomcat/lib/			
-COPY ../wars/epsosportal.war /usr/local/liferay-portal/tomcat/webapps/
-COPY ./tomcat-conf/conf-files/server.xml /usr/local/liferay-portal/tomcat/conf/
-COPY ./tomcat-conf/conf-files/context.xml /usr/local/liferay-portal/tomcat/conf/  
-COPY ./tomcat-conf/conf-files/*.properties /usr/local/liferay-portal/  
-COPY ./tomcat-conf/conf-files/setenv.sh  /usr/local/liferay-portal/tomcat/bin/setenv.sh
+COPY ./lportal/tomcat-conf/libs/*.jar /usr/local/liferay-portal/tomcat/lib/			
+COPY ./wars/epsosportal.war /usr/local/liferay-portal/tomcat/webapps/
+COPY ./lportal/tomcat-conf/conf-files/server.xml /usr/local/liferay-portal/tomcat/conf/
+COPY ./lportal/tomcat-conf/conf-files/context.xml /usr/local/liferay-portal/tomcat/conf/  
+COPY ./lportal/tomcat-conf/conf-files/*.properties /usr/local/liferay-portal/  
+COPY ./lportal/tomcat-conf/conf-files/setenv.sh  /usr/local/liferay-portal/tomcat/bin/setenv.sh
 
- 
+  

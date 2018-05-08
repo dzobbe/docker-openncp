@@ -1,9 +1,9 @@
 version: '2'
 services:
             
-#   country-a:
+#   country-b:
 #       build: 
-#           context: ./country-a
+#           context: ./
 #           dockerfile: ./Dockerfile
 #       volumes:
 #         - ./country-a:/home
@@ -17,8 +17,8 @@ services:
 
    country-b:
        build: 
-           context: ./country-b
-           dockerfile: ./Dockerfile
+           context: ./
+           dockerfile: ./country-b/Dockerfile
        volumes:
          - ./country-b:/home
          - ./country-b/openncp-configuration:/opt/openncp-configuration
@@ -31,8 +31,8 @@ services:
            
    portal: 
        build: 
-           context: ./lportal
-           dockerfile: ./Dockerfile
+           context: ./
+           dockerfile: ./lportal/Dockerfile
        volumes:
          - ./lportal:/home
          - ./lportal/openncp-configuration:/opt/openncp-configuration
@@ -58,7 +58,7 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.7
-            
+             
    mysql-filler:
        build: 
            context: ./mysql-db/mysql-filler
