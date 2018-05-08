@@ -1,5 +1,5 @@
 # dockerized-openncp
-This is dockerized deployment of OpenNCP to make life of developers easier. 
+This is a dockerized deployment of OpenNCP to make life of developers easier. 
 
 ## Requirements
 
