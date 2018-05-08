@@ -1,7 +1,7 @@
 version: '2'
 services:
             
-#   country-b:
+#   country-a:
 #       build: 
 #           context: ./country-a
 #           dockerfile: ./Dockerfile
