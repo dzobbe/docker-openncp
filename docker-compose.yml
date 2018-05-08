@@ -1,0 +1,83 @@
+version: '2'
+services:
+            
+#   country-b:
+#       build: 
+#           context: ./country-a
+#           dockerfile: ./Dockerfile
+#       volumes:
+#         - ./country-a:/home
+#         - ./country-a/openncp-configuration:/opt/openncp-configuration
+#       depends_on: 
+#         - mysql-filler
+#       command: bash -c "sleep 5 && /usr/local/tomcat/bin/catalina.sh run"
+#       networks:
+#         openncp-net:
+#            ipv4_address: 10.5.0.5
+
+   country-b:
+       build: 
+           context: ./country-b
+           dockerfile: ./Dockerfile
+       volumes:
+         - ./country-b:/home
+         - ./country-b/openncp-configuration:/opt/openncp-configuration
+       depends_on: 
+         - mysql-filler
+       command: bash -c "sleep 8 && /usr/local/tomcat/bin/catalina.sh run"
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.6
+           
+   portal: 
+       build: 
+           context: ./lportal
+           dockerfile: ./Dockerfile
+       volumes:
+         - ./lportal:/home
+         - ./lportal/openncp-configuration:/opt/openncp-configuration
+       depends_on: 
+         - mysql-filler
+       command: bash -c  "/usr/local/liferay-portal/tomcat/bin/catalina.sh run"
+       ports:
+         - 127.0.0.1:8081:8081
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.8            
+            
+   mysql: 
+       image: mysql 
+       volumes: 
+         - ./mysql-db/db:/var/lib/mysql
+       ports:
+         - 3306:3306
+       environment:
+         - MYSQL_ROOT_PASSWORD=konfido
+         - MYSQL_USER=root
+         - MYSQL_DATABASE=openncp_properties
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.7
+            
+   mysql-filler:
+       build: 
+           context: ./mysql-db/mysql-filler
+           dockerfile: ./Dockerfile
+       volumes:
+         - ./mysql-db/mysql-filler:/home
+       depends_on: 
+         - mysql
+       command: bash -c "/home/startup.sh"
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.4
+                   
+         
+networks:
+     openncp-net:
+       driver: bridge
+       ipam:
+         driver: default
+         config:
+         -
+           subnet: 10.5.0.0/24     
