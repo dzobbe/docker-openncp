@@ -1,30 +1,34 @@
 version: '2'
 services:
             
-#   country-b:
-#       build: 
-#           context: ./
-#           dockerfile: ./Dockerfile
-#       volumes:
-#         - ./country-a:/home
-#         - ./country-a/openncp-configuration:/opt/openncp-configuration
-#       depends_on: 
-#         - mysql-filler
-#       command: bash -c "sleep 5 && /usr/local/tomcat/bin/catalina.sh run"
-#       networks:
-#         openncp-net:
-#            ipv4_address: 10.5.0.5
-
-   country-b:
+   country-a-es:
        build: 
            context: ./
-           dockerfile: ./country-b/Dockerfile
+           dockerfile: ./country-a-es/Dockerfile
        volumes:
-         - ./country-b:/home
-         - ./country-b/openncp-configuration:/opt/openncp-configuration
+         - ./country-a-es:/home
+         - ./country-a-es/openncp-configuration:/opt/openncp-configuration
+       depends_on: 
+         - mysql-filler
+       command: bash -c "sleep 5 && /usr/local/tomcat/bin/catalina.sh run"
+     #  ports:
+        # - 127.0.0.1:8080:8080
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.5
+
+   country-b-it:
+       build: 
+           context: ./
+           dockerfile: ./country-b-it/Dockerfile
+       volumes:
+         - ./country-b-it:/home
+         - ./country-b-it/openncp-configuration:/opt/openncp-configuration
        depends_on: 
          - mysql-filler
        command: bash -c "sleep 8 && /usr/local/tomcat/bin/catalina.sh run"
+       ports:
+         - 8080:8080
        networks:
          openncp-net:
             ipv4_address: 10.5.0.6
@@ -45,10 +49,10 @@ services:
          openncp-net:
             ipv4_address: 10.5.0.8            
             
-   mysql: 
+   mysql-it: 
        image: mysql 
        volumes: 
-         - ./mysql-db/db:/var/lib/mysql
+         - ./mysql-db/db-it:/var/lib/mysql
        ports:
          - 3306:3306
        environment:
@@ -58,6 +62,20 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.7
+  
+   mysql-es: 
+       image: mysql 
+       volumes: 
+         - ./mysql-db/db-es:/var/lib/mysql
+       ports:
+         - 3307:3306
+       environment:
+         - MYSQL_ROOT_PASSWORD=konfido
+         - MYSQL_USER=root
+         - MYSQL_DATABASE=openncp_properties
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.9
              
    mysql-filler:
        build: 
@@ -66,7 +84,8 @@ services:
        volumes:
          - ./mysql-db/mysql-filler:/home
        depends_on: 
-         - mysql
+         - mysql-it
+         - mysql-es
        command: bash -c "/home/startup.sh"
        networks:
          openncp-net:

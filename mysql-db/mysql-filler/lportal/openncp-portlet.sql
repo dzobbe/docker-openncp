@@ -1,5 +1,6 @@
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_ADMIN_PERMISSIONS', 'PRD-006,PRD-003,PRD-004,PRD-005,PRD-010,PRD-016,PPD-032,PPD-033',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CHECK_PERMISSIONS', 'false',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('CDA_STYLESHEET','/opt/openncp-configuration/CDA.xsl',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CLIENT_CONNECTOR_URL', 'http://10.5.0.6:8080/openncp-client-connector/services/ClientConnectorService',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CONSENT_OID', '2.16.470.1.100.1.1.1000.990.1',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CUSTODIAN_NAME', 'Malta Custodian Name',0);
@@ -26,5 +27,13 @@ REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_PHARMACIST_PERMISSION
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_PROPERTIES_UPDATED', 'TRUE',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_TEST_ASSERTIONS', 'false',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CONSENT_ENABLED','true',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_HCER_ENABLED','false',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_MRO_ENABLED','false',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CCD_ENABLED','false',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CONSENT_ENABLED','false',0);
+REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_PACREP_ENABLED','false',0);
+
+
 update property set is_smp=0;
+CREATE TABLE PROPERTY LIKE property;
 

@@ -17,7 +17,7 @@ RUN set -x \
 			
 
 COPY ./lportal/tomcat-conf/libs/*.jar /usr/local/liferay-portal/tomcat/lib/			
-COPY ./wars/epsosportal.war /usr/local/liferay-portal/tomcat/webapps/
+COPY ./wars/epsosportal.war /usr/local/liferay-portal/deploy/
 COPY ./lportal/tomcat-conf/conf-files/server.xml /usr/local/liferay-portal/tomcat/conf/
 COPY ./lportal/tomcat-conf/conf-files/context.xml /usr/local/liferay-portal/tomcat/conf/  
 COPY ./lportal/tomcat-conf/conf-files/*.properties /usr/local/liferay-portal/  

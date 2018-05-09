@@ -7,7 +7,7 @@ ORGNAME = cini
 # the '#' character in the ALTNAMES line, and change the subsequent
 # 'DNS:' entries accordingly. Please note: all DNS names must
 # resolve to the same IP address as the FQDN.
-ALTNAMES = DNS:cini.org.es
+ALTNAMES = DNS:cini.org.it
 
 # ------- no change below --------------------------
 [ req ]
@@ -19,11 +19,11 @@ distinguished_name = dn
 req_extensions = req_ext
 
 [ dn ]
-C = ES # country code
+C = IT # country code
 O = cini
 givenName=Giovanni
 surname=Mazzeo
-CN = cini.org.es
+CN = cini.org.it
 
 
 [ req_ext ]

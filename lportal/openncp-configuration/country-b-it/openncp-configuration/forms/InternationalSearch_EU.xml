@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patientSearch xmlns="http://ec.europa.eu/sante/ehncp/ism">
+   <country code="EU">
+      <searchFields>
+         <id domain="2.16.17.710.850.1000.990.1" label="ID Card Number" max="-1" min="-1"/>
+         <textField friendlyName="surname" label="patient.data.surname" max="-1" min="3"/>
+      </searchFields>
+   </country>
+</patientSearch>
