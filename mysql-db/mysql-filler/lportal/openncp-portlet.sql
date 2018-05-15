@@ -1,3 +1,5 @@
+update property set is_smp=0;
+
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_ADMIN_PERMISSIONS', 'PRD-006,PRD-003,PRD-004,PRD-005,PRD-010,PRD-016,PPD-032,PPD-033',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CHECK_PERMISSIONS', 'false',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('CDA_STYLESHEET','/opt/openncp-configuration/CDA.xsl',0);
@@ -34,6 +36,5 @@ REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CONSENT_ENABLED','fal
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_PACREP_ENABLED','false',0);
 
 
-update property set is_smp=0;
 CREATE TABLE PROPERTY LIKE property;
 

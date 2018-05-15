@@ -164,6 +164,8 @@ RUN set -e \
 	
 EXPOSE 9000
 EXPOSE 8080
+EXPOSE 8079
+EXPOSE 8010
 
 
 COPY ./country-a-es/tomcat-conf/libs/*.jar /usr/local/tomcat/lib/
@@ -176,5 +178,6 @@ COPY ./wars/TRC-STS.war /usr/local/tomcat/webapps/
 COPY ./wars/openncp-client-connector.war /usr/local/tomcat/webapps/
 COPY ./wars/openncp-ws-server.war /usr/local/tomcat/webapps/
 COPY ./wars/openncp-gateway.war /usr/local/tomcat/webapps/
+COPY ./wars/openncp-nc-mock-it.jar /usr/local/tomcat/
 
 

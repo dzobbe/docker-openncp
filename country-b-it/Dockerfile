@@ -163,6 +163,9 @@ RUN set -e \
 	
 	
 EXPOSE 8010
+EXPOSE 8080
+EXPOSE 9000
+
 
 COPY ./country-b-it/tomcat-conf/libs/*.jar /usr/local/tomcat/lib/
 COPY ./country-b-it/tomcat-conf/conf-files/server.xml /usr/local/tomcat/conf/

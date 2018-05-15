@@ -1,25 +1,25 @@
 #!/bin/bash
 
-sleep 10
+sleep 20
 
 echo "default-character-set=utf8mb4" >> /etc/mysql/conf.d/mysql.cnf
 
 cd  home/openncp-props-es
 java -jar *.jar &
 
-sleep 5
 
 cd  ../openncp-props-it
 java -jar *.jar &
-
-sleep 5
 
 cd ..
 
 echo "Initializing IT Database"
 mysql -h 10.5.0.7 -P 3306 -u root -pkonfido < init.sql
 echo "Initializing ES Database"
-mysql -h 10.5.0.9 -P 3306 -u root -pkonfido < init.sql
+mysql -h 10.5.0.9 -P 3307 -u root -pkonfido < init.sql
+
+
+mysql -h 10.5.0.9 -P 3307 -u root -pkonfido < openncp-props-es/smp.sql
 
 cd tsam
 echo "Initializing TSAM DB"
@@ -37,3 +37,7 @@ echo "Initializing OpenNCP Portal Properties"
 mysql -h 10.5.0.7 -P 3306 -u root -pkonfido openncp_properties < openncp-portlet.sql
 mysql -h 10.5.0.7 -P 3306 -u root -pkonfido hcer < hcer.sql
 
+echo "Initializing EADC DB"
+cd ../eadc
+mysql -h 10.5.0.9 -P 3307 -u root -pkonfido eadc < CREATE_EADC.sql
+mysql -h 10.5.0.7 -P 3306 -u root -pkonfido eadc < CREATE_EADC.sql

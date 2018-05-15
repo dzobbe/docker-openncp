@@ -10,9 +10,7 @@ services:
          - ./country-a-es/openncp-configuration:/opt/openncp-configuration
        depends_on: 
          - mysql-filler
-       command: bash -c "sleep 5 && /usr/local/tomcat/bin/catalina.sh run"
-     #  ports:
-        # - 127.0.0.1:8080:8080
+       command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
        networks:
          openncp-net:
             ipv4_address: 10.5.0.5
@@ -26,9 +24,7 @@ services:
          - ./country-b-it/openncp-configuration:/opt/openncp-configuration
        depends_on: 
          - mysql-filler
-       command: bash -c "sleep 8 && /usr/local/tomcat/bin/catalina.sh run"
-       ports:
-         - 8080:8080
+       command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
        networks:
          openncp-net:
             ipv4_address: 10.5.0.6
@@ -42,7 +38,7 @@ services:
          - ./lportal/openncp-configuration:/opt/openncp-configuration
        depends_on: 
          - mysql-filler
-       command: bash -c  "/usr/local/liferay-portal/tomcat/bin/catalina.sh run"
+       command: bash -c  "sleep 55 && /usr/local/liferay-portal/tomcat/bin/catalina.sh run"
        ports:
          - 127.0.0.1:8081:8081
        networks:
@@ -62,7 +58,7 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.7
-  
+            
    mysql-es: 
        image: mysql 
        volumes: 
