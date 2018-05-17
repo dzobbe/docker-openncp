@@ -17,9 +17,6 @@ wget
 https://ec.europa.eu/cefdigital/artifact/content/repositories/eHealth/eu/europa/ec/sante/ehdsi/openncp-protocol-terminators/openncp-ncp-client/openncp-client-connector/${OPENNCP_WARS_VERSION}/openncp-client-connector-${OPENNCP_WARS_VERSION}.war 
 -O ../wars/openncp-client-connector.war
 wget 
-https://ec.europa.eu/cefdigital/artifact/content/repositories/eHealth/eu/europa/ec/sante/ehdsi/openncp-protocol-terminators/openncp-ncp-client/openncp-client-connector/${OPENNCP_WARS_VERSION}/openncp-client-connector-${OPENNCP_WARS_VERSION}.war 
--O ../wars/openncp-client-connector.war
-wget 
 https://ec.europa.eu/cefdigital/artifact/content/repositories/eHealth/eu/europa/ec/sante/ehdsi/openncp-openatna/openatna-web/${OPENNCP_WARS_VERSION}/openatna-web-${OPENNCP_WARS_VERSION}.war 
 -O ../wars/openatna-web.war
 wget 
