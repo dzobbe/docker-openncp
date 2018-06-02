@@ -35,6 +35,3 @@ REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CCD_ENABLED','false',
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_CONSENT_ENABLED','false',0);
 REPLACE  INTO property (name,value,is_smp) VALUES ('PORTAL_PACREP_ENABLED','false',0);
 
-
-CREATE TABLE PROPERTY LIKE property;
-

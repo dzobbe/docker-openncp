@@ -46,7 +46,7 @@ services:
             ipv4_address: 10.5.0.8            
             
    mysql-it: 
-       image: mysql 
+       image: mysql:5.7 
        volumes: 
          - ./mysql-db/db-it:/var/lib/mysql
        ports:
@@ -60,7 +60,7 @@ services:
             ipv4_address: 10.5.0.7
             
    mysql-es: 
-       image: mysql 
+       image: mysql:5.7 
        volumes: 
          - ./mysql-db/db-es:/var/lib/mysql
        ports:
