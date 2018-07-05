@@ -49,6 +49,7 @@ services:
        image: mysql:5.7 
        volumes: 
          - ./mysql-db/db-it:/var/lib/mysql
+         - ./mysql-db/custom.cnf:/etc/mysql/conf.d/custom.cnf
        ports:
          - 3306:3306
        environment:
@@ -63,6 +64,7 @@ services:
        image: mysql:5.7 
        volumes: 
          - ./mysql-db/db-es:/var/lib/mysql
+         - ./mysql-db/custom.cnf:/etc/mysql/conf.d/custom.cnf
        ports:
          - 3307:3306
        environment:
@@ -79,6 +81,7 @@ services:
            dockerfile: ./Dockerfile
        volumes:
          - ./mysql-db/mysql-filler:/home
+
        depends_on: 
          - mysql-it
          - mysql-es

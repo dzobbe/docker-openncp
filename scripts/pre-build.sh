@@ -1,7 +1,6 @@
 #!/bin/bash
 
 OPENNCP_WARS_VERSION=2.5.2
-OPENNCP_NATIONAL_CONNECTOR=openncp-nc-mock-it.jar
 
 
 if [ ! -d wars ]; then
