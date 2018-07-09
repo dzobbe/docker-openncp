@@ -28,6 +28,20 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.6
+            
+   country-c-dk:
+       build: 
+           context: ./
+           dockerfile: ./country-c-dk/Dockerfile
+       volumes:
+         - ./country-c-dk:/home
+         - ./country-c-dk/openncp-configuration:/opt/openncp-configuration
+       depends_on: 
+         - mysql-filler
+       command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.10
            
    portal: 
        build: 
@@ -74,6 +88,21 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.9
+            
+   mysql-dk: 
+       image: mysql:5.7 
+       volumes: 
+         - ./mysql-db/db-dk:/var/lib/mysql
+         - ./mysql-db/custom.cnf:/etc/mysql/conf.d/custom.cnf
+       ports:
+         - 3308:3306
+       environment:
+         - MYSQL_ROOT_PASSWORD=konfido
+         - MYSQL_USER=root
+         - MYSQL_DATABASE=openncp_properties
+       networks:
+         openncp-net:
+            ipv4_address: 10.5.0.11
              
    mysql-filler:
        build: 
@@ -85,6 +114,7 @@ services:
        depends_on: 
          - mysql-it
          - mysql-es
+         - mysql-dk
        command: bash -c "/home/startup.sh"
        networks:
          openncp-net:

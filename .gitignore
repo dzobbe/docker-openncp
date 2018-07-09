@@ -1,7 +1,11 @@
 wars/
 mysql-db/db-es/
 mysql-db/db-it/
+mysql-db/db-dk/
+
 country-b-it/openncp-configuration/obligations
 country-a-es/openncp-configuration/obligations
+country-c-dk/openncp-configuration/obligations
+
 lportal/openncp-configuration/audit-backup
 lportal/openncp-configuration/obligations

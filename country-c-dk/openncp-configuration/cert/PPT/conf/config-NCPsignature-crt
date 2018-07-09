@@ -1,0 +1,10 @@
+extensions = x509v3
+x509_extensions = x509v3
+
+[ x509v3 ]
+subjectAltName   = email:giovanni.mazzeo@uniparthenope.dk
+keyUsage 	 = critical, nonRepudiation, digitalSignature
+authorityKeyIdentifier = keyid,issuer
+basicConstraints = critical,CA:FALSE
+subjectKeyIdentifier = hash
+crlDistributionPoints=URI:http://fitnesslab.dk/CRL/openncp-crl.pem

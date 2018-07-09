@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patientSearch xmlns="http://ec.europa.eu/sante/ehncp/ism">
+   <!-- min and max -1 means no length check -->
+   <!-- id format="LLLLLLNNLNNLNNNL" means 'L'etter 'N'umber -->
+   <!-- validation contains the fields which are mandatory -->
+   <!-- more then one validation means or -->
+   <!-- only one input field no validation necessary because minimum value which has to be filled out is 1 -->
+   <country code="CH">
+      <searchFields>
+         <id label="patient.data.unique.identifier" min="-1" max="-1" domain="2.16.17.710.814.1000.990.1" />
+         <birthDate label="patient.data.birth.date" />
+      </searchFields>
+   </country>
+</patientSearch>

@@ -6,5 +6,6 @@ CREATE DATABASE IF NOT EXISTS openncp_logs;
 CREATE DATABASE IF NOT EXISTS tsam;
 
 USE openncp_properties;
-ALTER TABLE property ADD COLUMN is_smp bool;
 
+
+UPDATE property SET is_smp = false;
