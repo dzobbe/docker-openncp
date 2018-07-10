@@ -11,8 +11,8 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
                                                     -------------
                                              ______ DENMARK
                                             |       -------------	
-                                            |		ncp-c
-                                            |		db-dk
+                                            |       ncp-c
+                                            |       db-dk
             -------------                   |
             ITALY         ------------------
             -------------                   |
