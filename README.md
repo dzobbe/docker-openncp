@@ -13,7 +13,7 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
                                             |       -------------        ('it' stands for integration test)	
                                             |       ncp-c
                                             |       db-dk
-            -------------                   |
+            -------------                   |       dk-truststore(it-pk,es-pk)
             ITALY         ------------------
             -------------                   |
             ncp-b                           |
@@ -24,7 +24,8 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
                                                     -------------       ('it' stands for integration test)	
                                                     ncp-a
                                                     db-es
-## Requirements
+                                                    es-truststore(dk-pk,it-pk)
+## Requirements      
 
 A Unix-based OS with Docker and Docker-Compose is needed.
 
@@ -50,7 +51,7 @@ The portal is exposed on `http://localhost:8081`. The portal default admin usern
 
 ## Usage Example
 
-Run all docker containers with `docker-compose up`. Open the portal and access with a user having, e.g., a doctor role. Ask for a clinical document of a Spanish patient. Click the proper Spanish flag from the OpenNCP portal, and insert the patient credentials. 
+Run all docker containers with `docker-compose up`. Open the portal and access with a user having, e.g., a doctor role. Ask for a clinical document of a Spanish patient. Click the proper Spanish flag from the OpenNCP portal, and insert the patient credentials. Use for both fields the code `28638911K`. You should receive back data of thapatient. 
 
 
 ## Credentials
@@ -60,7 +61,7 @@ The password used for every component/tool (e.g. databases) is `konfido`
 
 ## National Connectors
 
-The retrievement of clinical data in the national infrastructure is realized by a national connector. This should be implemented by each country. The OpenNCP installation manual explains [here](https://ec.europa.eu/cefdigital/wiki/display/EHNCP/Integration+of+Protocol+Terminators+with+National+Connector) how to implement and deploy a national connector. In this testing docker infrastructure, the `openncp-nc-mock-it-2.5.3.RC1.jar` is used (notice that "it" stands for Integration Testing, not Italy). This is a NC implementation example provided by OpenNCP. We used this NC for both Spain and Denmark. 
+The retrievement of clinical data in the national infrastructure is realized by a national connector. This should be implemented by each country. The OpenNCP installation manual explains [here](https://ec.europa.eu/cefdigital/wiki/display/EHNCP/Integration+of+Protocol+Terminators+with+National+Connector) how to implement and deploy a national connector. In this testing docker infrastructure, the `openncp-nc-mock-it-2.5.3.RC1.jar` is used (notice that "it" stands for Integration Testing, not Italy). This is a NC implementation example provided by OpenNCP. I used this NC for both Spain and Denmark. 
 This mock connector, provided as a JAR file within the `scripts` folder, looks for patients in a local directory on the container file system, i.e., `/opt/openncp-configuration/integration`. This folder contains another folder named with the OID provided by an HL7 affiliate (e.g., OID associated to the Spanish Patient Identifier Code). Within this subfolder, there is a file with .properties extension and whose name is a patient's document id. Documents are then obtained from files embedded into the JAR located in `resources/psstore/`. 
 You can develop/modify and recompile your own NC using the open source code available [here](https://ec.europa.eu/cefdigital/code/projects/EHNCP/repos/ehealth/browse/protocol-terminators/epsos-ncp-server). 
 
@@ -85,3 +86,4 @@ I report here some information that could be useful for those who want to extend
     * Copy-paste the `mysql-props-filler/openncp-props-{country}` folder and change the configurations in database.config.xml and openncp-configuration.properties. Furthermore, add new dedicated lines to the startup.sh script. 
     * Copy-paste one of the `country-` folder. Then, you need to create new certificates for the new country. To do that, follow the guidelines provided by OpenNCP [here](https://ec.europa.eu/cefdigital/wiki/display/EHNCP/Create+epSOS+Certificates)
     * Change the Tomcat configurations in tomcat-conf/server.xml
+    * Modify the script `import_countries_cert.sh` and run it in order to load all the public certificates in countries truststores 
