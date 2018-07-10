@@ -79,4 +79,9 @@ I report here some information that could be useful for those who want to extend
 * If you need to get access and eventually modify your database just run from your host `mysql -h 0.0.0.0 -P {port exposed by one of the DB containers (3306, 3307, 3308)} -u root -pkonfido`
 * If you want to modify properties of OpenNCP, go to `mysql-props-filler/openncp-props-{country}/openncp-configuration.properties` and then rerun `docker-compose up`. In this case there is no need of running again `docker-compose build`
 * If you need to modify the one of the .war to be used by countries, then you have to first run `docker-compose build` and after that `docker-compose up`
-* 
+* If you want to change the deployment. Let's assume you want to query document from DK to IT and ES. Then, you need to change the lportal configuration and also load the proper pub keys in the dk-truststore
+* If you want to create a new country:
+** Copy-paste in the docker-compose file a new country and a new database, also remember to assign new addresses
+** Copy-paste the `mysql-props-filler/openncp-props-{country}` folder and change the configurations in database.config.xml and openncp-configuration.properties. Furthermore, add new dedicated lines to the startup.sh script. 
+** Copy-paste one of the `country-` folder. Then, you need to create new certificates for the new country. To do that, follow the guidelines provided by OpenNCP [here](https://ec.europa.eu/cefdigital/wiki/display/EHNCP/Create+epSOS+Certificates)
+** Change the Tomcat configurations in tomcat-conf/server.xml
