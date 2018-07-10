@@ -13,12 +13,12 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
                                             |		-------------	
                                             |		ncp-c
                                             |		db-dk
-			-------------					|
-			ITALY         ------------------
-			-------------                   |
-			ncp-b                           |
-			db-it                           |
-			lportal                         |
+            -------------					|
+            ITALY         ------------------
+            -------------                   |
+            ncp-b                           |
+            db-it                           |
+            lportal                         |
 			it-truststore(dk-pk,es-pk)      |       -------------
                                             |______ SPAIN
                                                     -------------	
