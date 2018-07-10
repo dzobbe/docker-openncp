@@ -21,17 +21,17 @@
 <!-- For IHE Actor -->
 <Configuration>
    <SecureConnection name="arr-tls">
-      <HostName>10.5.0.6</HostName>
+      <HostName>10.5.0.10</HostName>
       <Port>2862</Port>
       <!-- Trust and Keystore -->
-      <KeyStore>/opt/openncp-configuration/cert/PPT/keystore/es-service-provider-keystore.jks</KeyStore>
+      <KeyStore>/opt/openncp-configuration/cert/PPT/keystore/dk-service-provider-keystore.jks</KeyStore>
       <KeyPass>konfido</KeyPass>
-      <TrustStore>/opt/openncp-configuration/cert/PPT/keystore/es-service-consumer-keystore.jks</TrustStore>
+      <TrustStore>/opt/openncp-configuration/cert/PPT/keystore/dk-service-consumer-keystore.jks</TrustStore>
       <TrustPass>konfido</TrustPass>
    </SecureConnection>
    <!-- use IP address instead of localhost for UDP -->
    <StandardConnection name="arr-udp">
-      <HostName>10.5.0.6</HostName>
+      <HostName>10.5.0.10</HostName>
       <Port>2861</Port>
    </StandardConnection>
 </Configuration>

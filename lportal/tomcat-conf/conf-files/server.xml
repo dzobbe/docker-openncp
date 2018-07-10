@@ -35,7 +35,7 @@
 		<Resource name="jdbc/ConfMgr" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="openncp_properties" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -43,7 +43,7 @@
 		<Resource name="jdbc/OPEN_ATNA" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="openatna" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -51,7 +51,7 @@
 		<Resource name="jdbc/TSAM" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="tsam" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -59,7 +59,7 @@
 		<Resource name="jdbc/EADC_XCPD" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="eadc" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -67,7 +67,7 @@
 		<Resource name="jdbc/EADC_XDR" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="eadc" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -75,7 +75,7 @@
 		<Resource name="jdbc/EADC_XCA" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="eadc" dataSource.user="root"
 			dataSource.password="konfido" />
@@ -83,7 +83,7 @@
 		<Resource name="jdbc/LOGS" auth="Container"
 			factory="com.zaxxer.hikari.HikariJNDIFactory" type="javax.sql.DataSource"
 			singleton="true" minimumIdle="2" maximumPoolSize="5"
-			connectionTimeout="300000" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
+			connectionTimeout="300000" ssl="false" dataSourceClassName="com.mysql.jdbc.jdbc2.optional.MysqlDataSource"
 			dataSource.serverName="10.5.0.7" dataSource.port="3306"
 			dataSource.databaseName="openncp_logs" dataSource.user="root"
 			dataSource.password="konfido" />

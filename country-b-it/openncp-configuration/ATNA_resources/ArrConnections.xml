@@ -24,9 +24,9 @@
       <HostName>10.5.0.6</HostName>
       <Port>2862</Port>
       <!-- Trust and Keystore -->
-      <KeyStore>/opt/openncp-configuration/cert/PPT/keystore/es-service-provider-keystore.jks</KeyStore>
+      <KeyStore>/opt/openncp-configuration/cert/PPT/keystore/it-service-provider-keystore.jks</KeyStore>
       <KeyPass>konfido</KeyPass>
-      <TrustStore>/opt/openncp-configuration/cert/PPT/keystore/es-service-consumer-keystore.jks</TrustStore>
+      <TrustStore>/opt/openncp-configuration/cert/PPT/keystore/it-service-consumer-keystore.jks</TrustStore>
       <TrustPass>konfido</TrustPass>
    </SecureConnection>
    <!-- use IP address instead of localhost for UDP -->

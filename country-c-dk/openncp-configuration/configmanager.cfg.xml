@@ -7,6 +7,7 @@
         <property name="connection.datasource">java:comp/env/jdbc/ConfMgr</property>
         <!-- Echo all executed SQL to stdout -->
         <property name="show_sql">false</property>
+        <property name="hibernate.connection.requireSSL">false</property>
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
         <!-- Disable the second-level cache  -->

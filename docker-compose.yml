@@ -9,7 +9,7 @@ services:
          - ./country-a-es:/home
          - ./country-a-es/openncp-configuration:/opt/openncp-configuration
        depends_on: 
-         - mysql-filler
+         - mysql-props-filler
        command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
        networks:
          openncp-net:
@@ -23,7 +23,7 @@ services:
          - ./country-b-it:/home
          - ./country-b-it/openncp-configuration:/opt/openncp-configuration
        depends_on: 
-         - mysql-filler
+         - mysql-props-filler
        command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
        networks:
          openncp-net:
@@ -37,7 +37,7 @@ services:
          - ./country-c-dk:/home
          - ./country-c-dk/openncp-configuration:/opt/openncp-configuration
        depends_on: 
-         - mysql-filler
+         - mysql-props-filler
        command: bash -c "sleep 40 && /usr/local/tomcat/bin/catalina.sh run"
        networks:
          openncp-net:
@@ -51,7 +51,7 @@ services:
          - ./lportal:/home
          - ./lportal/openncp-configuration:/opt/openncp-configuration
        depends_on: 
-         - mysql-filler
+         - mysql-props-filler
        command: bash -c  "sleep 55 && /usr/local/liferay-portal/tomcat/bin/catalina.sh run"
        ports:
          - 127.0.0.1:8081:8081
@@ -88,7 +88,7 @@ services:
        networks:
          openncp-net:
             ipv4_address: 10.5.0.9
-            
+             
    mysql-dk: 
        image: mysql:5.7 
        volumes: 
@@ -98,19 +98,18 @@ services:
          - 3308:3306
        environment:
          - MYSQL_ROOT_PASSWORD=konfido
-         - MYSQL_USER=root
+         - MYSQL_USER=root 
          - MYSQL_DATABASE=openncp_properties
        networks:
          openncp-net:
-            ipv4_address: 10.5.0.11
+            ipv4_address: 10.5.0.11  
              
-   mysql-filler:
+   mysql-props-filler:
        build: 
-           context: ./mysql-db/mysql-filler
+           context: ./mysql-props-filler
            dockerfile: ./Dockerfile
        volumes:
-         - ./mysql-db/mysql-filler:/home
-
+         - ./mysql-props-filler:/home
        depends_on: 
          - mysql-it
          - mysql-es

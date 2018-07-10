@@ -9,6 +9,7 @@
         <property name="show_sql">false</property>
         <!-- Enable Hibernate's automatic session context management -->
         <property name="current_session_context_class">thread</property>
+        <property name="hibernate.connection.requireSSL">false</property>
         <!-- Disable the second-level cache  -->
         <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
         <property name="hibernate.hbm2ddl.auto">update</property>

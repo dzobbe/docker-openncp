@@ -45,6 +45,9 @@ The password used for every component/tool (e.g. databases) is `konfido`
 ## National Connectors
 
 The retrievement of clinical data in the national infrastructure is realized by a national connector. This should be implemented by each country. The OpenNCP installation manual explains [here](https://ec.europa.eu/cefdigital/wiki/display/EHNCP/Integration+of+Protocol+Terminators+with+National+Connector) how to implement and deploy a national connector. In this testing docker infrastructure, the `openncp-nc-mock-it-2.5.3.RC1.jar` is used (notice that "it" stands for Integration Testing, not Italy). This is a NC implementation example provided by OpenNCP. We used this NC for both Spain and Denmark. 
+This mock connector, provided as a JAR file within the `scripts` folder, looks for patients in a local directory on the container file system, i.e., `/opt/openncp-configuration/integration`. This folder contains another folder named with the OID provided by an HL7 affiliate (e.g., OID associated to the Spanish Patient Identifier Code). Within this subfolder, there is a file with .properties extension and whose name is a patient's document id. Documents are then obtained from files embedded into the JAR located in `resources/psstore/`. 
+You can develop/modify and recompile your own NC using the open source code available [here](https://ec.europa.eu/cefdigital/code/projects/EHNCP/repos/ehealth/browse/protocol-terminators/epsos-ncp-server). 
+
 
 
 ## Possible Errors

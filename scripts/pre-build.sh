@@ -17,4 +17,17 @@ wget https://ec.europa.eu/cefdigital/artifact/content/repositories/eHealth/eu/eu
 wget https://ec.europa.eu/cefdigital/artifact/content/repositories/eHealth/eu/europa/ec/sante/ehdsi/openncp-portal/${OPENNCP_WARS_VERSION}/openncp-portal-${OPENNCP_WARS_VERSION}.war -O ../wars/epsosportal.war
 
 popd
+
+mkdir tmp
+
+unzip ./wars/openncp-ws-server.war -d tmp
+rm ./wars/openncp-ws-server.war 
+
+cp -rf ./scripts/openncp-nc-mock-it.jar tmp/WEB-INF/lib/openncp-nc-mock-it.jar
+
+pushd tmp
+zip -r ../wars/openncp-ws-server.war *
+popd
  
+rm -rf tmp
+

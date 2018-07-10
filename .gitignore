@@ -7,5 +7,9 @@ country-b-it/openncp-configuration/obligations
 country-a-es/openncp-configuration/obligations
 country-c-dk/openncp-configuration/obligations
 
+country-a-es/openncp-configuration/audit-backup
+country-b-it/openncp-configuration/audit-backup
+country-c-dk/openncp-configuration/audit-backup
+
 lportal/openncp-configuration/audit-backup
 lportal/openncp-configuration/obligations
