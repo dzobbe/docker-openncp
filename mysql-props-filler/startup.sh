@@ -47,3 +47,5 @@ echo "Initializing EADC Database"
 cd ../eadc
 mysql -h 10.5.0.9 -P 3306 -u root -pkonfido eadc < CREATE_EADC.sql
 mysql -h 10.5.0.7 -P 3306 -u root -pkonfido eadc < CREATE_EADC.sql
+mysql -h 10.5.0.11 -P 3306 -u root -pkonfido eadc < CREATE_EADC.sql
+

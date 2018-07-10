@@ -6,8 +6,24 @@ This is a dockerized deployment of OpenNCP to make life of developers easier. Th
 * Database Containers - used for the deployment of storage systems of configured countries 
 * Database Filler Container - needed for filling all the national databases during the startup phase
 
-Notice that in this testing docker infrastructure, we are assuming a situation where a doctor/nurse in Italy wants to obtain clinical data from either Spain or Denmark.
+Notice that in this testing docker infrastructure, we are assuming a situation where a doctor/nurse in Italy wants to obtain clinical data from either Spain or Denmark. Give a look to the scheme below.
 
+																	-------------
+														 _________  DENMARK
+														|			-------------	
+														|			ncp-c
+														|			db-dk
+			-------------								|
+			ITALY		  -------------------------------
+			-------------								|
+			ncp-b										|
+			db-it										|
+			lportal										|
+			it-truststore(dk-pk,es-pk)					|			-------------
+														|_________	SPAIN
+																	-------------	
+																	ncp-a
+																	db-es
 ## Requirements
 
 A Unix-based OS with Docker and Docker-Compose is needed.
@@ -53,3 +69,14 @@ You can develop/modify and recompile your own NC using the open source code avai
 ## Possible Errors
 
 If the NCP returns the following error during the CDA document retrievement `Failed to load implementation of PatientSearchService: null`, it means that the national connector was not loaded. 
+Don't care if you get at the end of the docker-compose outputs the exception `ERROR [liferay/hot_deploy-1][SerialDestination:70] Unable to process message`
+
+
+## Information needed for Extensions
+
+I report here some information that could be useful for those who want to extend the current deployment:
+
+* If you need to get access and eventually modify your database just run from your host `mysql -h 0.0.0.0 -P {port exposed by one of the DB containers (3306, 3307, 3308)} -u root -pkonfido`
+* If you want to modify properties of OpenNCP, go to `mysql-props-filler/openncp-props-{country}/openncp-configuration.properties` and then rerun `docker-compose up`. In this case there is no need of running again `docker-compose build`
+* If you need to modify the one of the .war to be used by countries, then you have to first run `docker-compose build` and after that `docker-compose up`
+* 
