@@ -31,3 +31,4 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
   profiles:
     active: mysql
+ 

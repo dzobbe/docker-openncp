@@ -9,8 +9,8 @@ This is a dockerized deployment of OpenNCP to make life of developers easier. Th
 Notice that in this testing docker infrastructure, we are assuming a situation where a doctor/nurse in Italy wants to obtain clinical data from either Spain or Denmark. Give a look to the scheme below.
 
                                                     -------------
-                                             ______ DENMARK
-                                            |       -------------	
+                                             ______ DENMARK       ------> National Connector nc-mock-it
+                                            |       -------------        ('it' stands for integration test)	
                                             |       ncp-c
                                             |       db-dk
             -------------                   |
@@ -20,8 +20,8 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
             db-it                           |
             lportal                         |
             it-truststore(dk-pk,es-pk)      |       -------------
-                                            |______ SPAIN
-                                                    -------------	
+                                            |______ SPAIN        ------> National Connector nc-mock-it
+                                                    -------------       ('it' stands for integration test)	
                                                     ncp-a
                                                     db-es
 ## Requirements
