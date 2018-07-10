@@ -7,6 +7,7 @@ This is a dockerized deployment of OpenNCP to make life of developers easier. Th
 * Database Filler Container - needed for filling all the national databases during the startup phase
 
 Notice that in this testing docker infrastructure, we are assuming a situation where a doctor/nurse in Italy wants to obtain clinical data from either Spain or Denmark. Give a look to the scheme below.
+
 													-------------
 											 ______ DENMARK
 											|		-------------	
