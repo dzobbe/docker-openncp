@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?><ServiceMetadata xmlns="http://docs.oasis-open.org/bdxr/ns/SMP/2016/05" xmlns:ns2="http://www.w3.org/2000/09/xmldsig#"><ServiceInformation><ParticipantIdentifier scheme="ehealth-participantid-qns">urn:ehealth:es:ncp-idp</ParticipantIdentifier><DocumentIdentifier scheme="ehealth-resid-qns">urn:ehealth:ISM::InternationalSearchMask##ehealth-107</DocumentIdentifier><ProcessList><Process><ProcessIdentifier scheme="ehealth-procid-qns">urn:ehealth:ncp:es:ism</ProcessIdentifier><ServiceEndpointList><Endpoint transportProfile="urn:ehealth:transport:none"><EndpointURI></EndpointURI><ServiceActivationDate>2018-05-09T11:20:00.000Z</ServiceActivationDate><ServiceExpirationDate>2020-04-15T14:25:00.000Z</ServiceExpirationDate><Certificate></Certificate><ServiceDescription>TestOpenNCP</ServiceDescription><TechnicalContactUrl></TechnicalContactUrl><TechnicalInformationUrl></TechnicalInformationUrl><Extension><patientSearch:patientSearch xmlns:patientSearch="http://ec.europa.eu/sante/ehncp/ism" xmlns="http://ec.europa.eu/sante/ehncp/ism">
-   <country code="EU">
-      <searchFields>
-         <id domain="2.16.17.710.850.1000.990.1" label="ID Card Number" max="-1" min="-1"/>
-         <textField dtoIndex="1" friendlyName="surname" label="patient.data.surname" max="-1" min="3"/>
-      </searchFields>
-   </country>
-</patientSearch:patientSearch></Extension></Endpoint></ServiceEndpointList></Process></ProcessList></ServiceInformation></ServiceMetadata>

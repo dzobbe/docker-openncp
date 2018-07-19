@@ -26,19 +26,16 @@ for country_ts in "${countries_ts[@]}"; do
 		ServiceConsumerSignatureAlias=ppt.ncp-sc.epsos.$organization.${country}
 		ServiceProviderSignatureAlias=ppt.ncp-sp.epsos.$organization.${country}
 		OCSPSignatureAlias=ppt.ncp-ocsp.epsos.$organization.${country}
-		
-
 
 		if [ "$country_ts" != "$country" ]
 		then
-
 		
 			keytool -noprompt -importcert -alias $NcpSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sig-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $ServiceConsumerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sc-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $ServiceProviderSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sp-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $VPNServerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-server-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $VPNClientSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-client-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
-			keytool -noprompt -importcert -alias $OCSPSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-ocsp-self-sign.pem -keystore ${countries_dir[$country_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
+			keytool -noprompt -importcert -alias $OCSPSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-ocsp-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-truststore.jks -storepass $passwordTS
 	
 			keytool -noprompt -importcert -alias $NcpSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sig-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-service-provider-keystore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $ServiceConsumerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sc-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-service-provider-keystore.jks -storepass $passwordTS
@@ -60,6 +57,11 @@ for country_ts in "${countries_ts[@]}"; do
 			keytool -noprompt -importcert -alias $VPNServerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-server-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-ocsp-keystore.jks -storepass $passwordTS
 			keytool -noprompt -importcert -alias $VPNClientSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-client-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-ocsp-keystore.jks -storepass $passwordTS
 
+			keytool -noprompt -importcert -alias $NcpSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sig-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-signature-keystore.jks -storepass $passwordTS
+			keytool -noprompt -importcert -alias $ServiceConsumerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sc-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-signature-keystore.jks -storepass $passwordTS
+			keytool -noprompt -importcert -alias $ServiceProviderSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-sp-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-signature-keystore.jks -storepass $passwordTS
+			keytool -noprompt -importcert -alias $VPNServerSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-server-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-signature-keystore.jks -storepass $passwordTS
+			keytool -noprompt -importcert -alias $VPNClientSignatureAlias -file ${countries_dir[$index]}/openncp-configuration/cert/PPT/pem/${country}-ncp-vpn-client-self-sign.pem -keystore ${countries_dir[$index_ts]}/openncp-configuration/cert/PPT/keystore/${country_ts}-signature-keystore.jks -storepass $passwordTS
 
 		fi
 		
