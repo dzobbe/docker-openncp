@@ -30,7 +30,7 @@ Notice that in this testing docker infrastructure, we are assuming a situation w
 A Unix-based OS with Docker and Docker-Compose is needed.
 
 
-## Before Containers Building
+## Before Containers Building (CURRENTLY THIS STEP MUST NOT BE PERFORMED)
 
 Before building the containers it is necessary to download all the OpenNCP war files from the repository. In order do that you need to run from the `dockerize-openncp` root directory the `scripts/pre-build.sh` script. There you can also set the `OPENNCP_WARS_VERSION` variable to configure the OpenNCP war files version (by default is 2.5.2).
 
