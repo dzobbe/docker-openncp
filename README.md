@@ -1,5 +1,5 @@
-# dockerized-openncp
-This is a dockerized deployment of OpenNCP to make life of developers easier. The testing infrastructure is composed by three countries, i.e., Spain, Italy, and Denmark. As reported by the `docker-compose.yml` file, a number of containers have been configured to support such an environment:
+# docker-openncp
+This is a dockerized deployment of OpenNCP developed in the context of KONFIDO project (www.konfido-project.eu) to make life of developers easier. The testing infrastructure is composed by three countries, i.e., Spain, Italy, and Denmark. As reported by the `docker-compose.yml` file, a number of containers have been configured to support such an environment:
 
 * National Containers - `country-a-es` `country-b-it` `country-c-dk` - run the NCPs and the national connectors for each specific country
 * Portal Container - hosts the Liferay Web portal, configured to connect to the Italian container from which requests of clinical data are started 
